@@ -1,0 +1,309 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 10, 2015, 2:18:54 AM
+    Author     : Herudi
+*/
+
+.root {
+
+    /* These are needed for Popup */
+    -fx-background-color: inherit;
+    -fx-background-radius: inherit;
+    -fx-background-insets: inherit;
+    -fx-padding: inherit;
+    
+    
+    
+    /****************
+    *                *
+    * AQUA STUFF    *
+    *                *
+    ****************/
+    -fx-text-base-color: black;
+    -fx-text-fill: -fx-text-base-color;
+    
+    /* background color for dialogs */
+    -fx-background-color: rgb(237.0, 237.0, 237.0);
+    /*     default font */
+    -fx-font-family: 'lucida-grande';
+    -fx-font-size: 13.0;
+    -fx-disabled-opacity: 0.6; 
+    
+     /* The color to use in ListView/TreeView/TableView to indicate hover. */
+    -fx-cell-hover-color: rgb(182.0, 214.0, 253.0);
+    
+    -toggle-selected-base:linear-gradient(rgb(94.0, 94.0, 94.0) 0.0%, rgb(120.0, 120.0, 120.0) 10.0%, 
+        rgb(150.0, 150.0, 150.0) 85.0%, rgb(177.0, 177.0, 177.0) 98.0%, rgb(97.0, 97.0, 97.0) 100.0%); 
+    
+    -toggle-armed-base:linear-gradient(rgb(87.0, 87.0, 87.0) 0.0%, rgb(113.0, 113.0, 113.0) 12.0%, 
+        rgb(125.0, 125.0, 125.0) 87.0%, rgb(129.0, 129.0, 129.0) 87.1%, rgb(155.0, 155.0, 155.0) 100.0%); 
+
+    -toggle-shadow-armed: linear-gradient(to right, rgb(87.0, 87.0, 87.0, 0.5) 0.0%, transparent 3.0%, transparent 97.0%, rgb(87.0, 87.0, 87.0, 0.5) 100.0%);
+    -toggle-shadow: linear-gradient(to right, rgb(87.0, 87.0, 87.0, 0.3) 0.0%, transparent 3.0%, transparent 97.0%, rgb(87.0, 87.0, 87.0, 0.3) 100.0%);
+
+    -choice-base: linear-gradient(rgb(255.0, 255.0, 255.0) 25.0%, rgb(243.0, 243.0, 243.0) 50.0%, rgb(236.0, 236.0, 236.0) 50.0%, rgb(243.0, 243.0, 243.0) 100.0% );
+}
+
+.table-view,
+.tree-table-view {
+    -fx-background-color: white;
+    -fx-background-insets: 0.5;
+    -fx-border-color: rgb(156.0, 156.0, 156.0) rgb(190.0, 190.0, 190.0) rgb(190.0, 190.0, 190.0) rgb(190.0, 190.0, 190.0);
+    -fx-border-width: 1.0;
+    -fx-border-insets: 0.0;
+    -fx-table-cell-border-color: transparent;
+}
+
+/* Draws focus border around tableview */
+.table-view:focused,
+.tree-table-view:focused,
+.tree-view:focused,
+.list-view:focused  {
+    -fx-effect: dropshadow(one-pass-box , rgb(120.0,171.0,217.0), 8.0, 0.8 , 0.0, 0.0);
+}
+
+.table-view:disabled,
+.tree-view:disabled,
+.tree-table-view:disabled,
+.list-view:disabled,
+.list-cell:filled:selected:focused:disabled, 
+.list-cell:filled:selected:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+/* Each row in the table is a table-row-cell. Inside a table-row-cell is any
+   number of table-cell. */
+.table-row-cell,
+.tree-table-row-cell {
+    -fx-background-color: white;
+    -fx-background-insets: 0.0;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell:odd,
+.tree-table-row-cell:odd {
+    -fx-background-color: rgb(243.0, 246.0, 250.0);
+}
+
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected > .table-cell,
+.tree-table-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:filled:selected > .tree-table-cell {
+    -fx-text-fill: white;
+}
+
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected, 
+.tree-table-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:filled:selected,
+.table-view:row-selection:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:focused:selected:hover,
+.tree-table-view:row-selection:focused > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:filled:focused:selected:hover {
+    -fx-background-color: rgb(60.0, 119.0, 212.0);
+    -fx-background-insets: 0.0 0.0 1.0 0.0;
+}
+
+/* When the TableView is _not_ focused, we show alternate selection colors */
+.table-row-cell:filled:selected:focused, 
+.table-row-cell:filled:selected,
+.tree-table-row-cell:filled:selected:focused, 
+.tree-table-row-cell:filled:selected,
+.tree-cell:filled:selected:focused, 
+.tree-cell:filled:selected {
+    -fx-background-color: lightgray;
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.table-row-cell:selected:disabled,
+.tree-table-row-cell:selected:disabled,
+.tree-cell > .tree-disclosure-node:disabled,
+.tree-table-row-cell > .tree-disclosure-node:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+.table-view:row-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:hover,
+.tree-view > .virtual-flow > .clipped-container > .sheet > .tree-cell:filled:hover,
+.table-view:row-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:focused:hover,
+.tree-table-view:row-selection > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:filled:focused:hover,
+.tree-table-view:row-selection > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:filled:hover, 
+.tree-view > .virtual-flow > .clipped-container > .sheet > .tree-cell:filled:selected:hover,
+.tree-table-row-cell:filled:selected:hover { 
+    -fx-background-color: -fx-cell-hover-color;
+    -fx-background-insets: 0.0;
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.table-cell,
+.tree-table-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0.0em;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-padding: 0.0em 0.769231em 0.0em 0.769231em;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* When in constrained resize mode, the right-most visible cell should not have
+   a right-border, as it is not possible to get this cleanly out of view without
+   introducing horizontal scrollbars (see RT-14886). */
+.table-view:constrained-resize > .virtual-flow > .clipped-container > .sheet > .table-row-cell > .table-cell:last-visible,
+.tree-table-view:constrained-resize > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell > .tree-table-cell:last-visible {
+    -fx-border-color: transparent;
+}
+.table-view:constrained-resize > .column-header:last-visible,
+.tree-table-view:constrained-resize > .column-header:last-visible {
+    -fx-border-width: 0.083333em 0.0em 0.083333em 0.083333em, 0.083333em 0.0em 0.083333em 0.083333em;
+}
+.table-view:constrained-resize .filler,
+.tree-table-view:constrained-resize .filler {
+    -fx-border-insets: 0.0 1.0 1.0 1.0, 0.0 0.0 0.0 0.0;
+}
+
+/* When the TableView is _not_ focused, we show alternate selection colors */
+ .table-row-cell:filled > .table-cell:selected:focused, 
+ .table-row-cell:filled > .table-cell:selected,
+ .tree-table-row-cell:filled > .tree-table-cell:selected:focused, 
+ .tree-table-row-cell:filled > .tree-table-cell:selected {
+    -fx-background-color: lightgray;
+}
+
+.table-cell:selected:disabled,
+.tree-table-cell:selected:disabled,
+.tree-cell:filled:selected:focused:disabled, 
+.tree-cell:filled:selected:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+/* The column-resize-line is shown when the user is attempting to resize a column. */
+.table-view .column-resize-line,
+.tree-table-view .column-resize-line {
+    -fx-background-color: lightgray;
+    -fx-padding: 0.0em 0.02em 0.0em 0.02em; 
+}
+
+/* This is the area behind the column headers. An ideal place to specify background
+   and border colors for the whole area (not individual column-header's). */
+.table-view .column-header-background,
+.tree-table-view .column-header-background {
+     -fx-background-color:
+        linear-gradient(rgb(255.0, 255.0, 255.0) 25.0%, rgb(243.0, 243.0, 243.0) 50.0%, rgb(236.0, 236.0, 236.0) 50.0%, rgb(243.0, 243.0, 243.0) 98.0% , rgb(250.0, 250.0, 250.0) 100.0% );
+    -fx-background-insets:  0.0;
+    -fx-border-color: rgb(156.0, 156.0, 156.0);
+    -fx-border-insets: 0.0 0.0 0.5 0.0;
+    -fx-border-width: 0.0 0.0 0.5 0.0;
+    -fx-padding: 0.0;
+}
+
+/* The column header row is made up of a number of column-header, one for each
+   TableColumn, and a 'filler' area that extends from the right-most column
+   to the edge of the tableview, or up to the 'column control' button. */
+.table-view .column-header,
+.tree-table-view .column-header {
+    /* since there could appear nested column-headers in a header, the border-color is defined by a gradient */
+    -fx-right-border: linear-gradient(transparent, transparent 15.0%, rgb(190.0, 190.0, 190.0, 0.8) 15.0%, rgb(190.0, 190.0, 190.0, 0.8) 85.0%, transparent 85.0%, transparent);
+    -fx-border-color: rgb(212.0, 212.0, 212.0, 0.8) -fx-right-border rgb(212.0, 212.0, 212.0, 0.8) transparent;
+    -fx-border-width: 0.5 1.0 0.5 0.0;
+    -fx-border-insets: 0.0;
+}
+
+
+/* This is especially for AquaFX. Apple uses tables with one column for simple Lists. This is just, to make it possible for users. The ListView Class  */
+.table-view.hide-header .column-header{
+    -fx-min-height: 0.0;
+    -fx-max-height: 0.0;
+    -fx-pref-height: 0.0;
+}
+
+/* filler is the area, which is next to column-header, but has no column..*/
+.table-view .filler,
+.tree-table-view .filler {
+    -fx-border-color: rgb(212.0, 212.0, 212.0, 0.8);
+    -fx-border-width: 0.5 0.0 0.5 0.0;
+    -fx-border-insets: 0.0;
+}
+
+.table-view .column-header:pressed,
+.tree-table-view .column-header:pressed,
+.table-view .filler:pressed,
+.tree-table-view .filler:pressed {
+     -fx-background-color:
+        linear-gradient(rgb(224.0, 224.0, 224.0) 25.0%, rgb(214.0, 214.0, 214.0) 50.0%, rgb(207.0, 207.0, 207.0) 50.0%, 
+                rgb(209.0, 209.0, 209.0) 98.0% , rgb(218.0, 218.0, 218.0) 100.0%
+        );
+    -fx-border-color: rgb(156.0, 156.0, 156.0);
+    -fx-border-width: 0.5 1.0 0.5 1.0 ;
+    -fx-border-insets: -0.5 0.0 -0.5 -1.0;
+}
+
+.table-view .column-header .sort-order-dots-container,
+.tree-table-view .column-header .sort-order-dots-container{
+    -fx-padding: 2.0 0.0 2.0 0.0;
+}
+
+.table-view .column-header .sort-order,
+.tree-table-view .column-header .sort-order{
+    -fx-font-size: 0.916667em;
+}
+
+.table-view .column-header .sort-order-dot,
+.tree-table-view .column-header .sort-order-dot {
+    -fx-background-color: rgb(255.0, 255.0, 255.0, 0.4), rgb(0.0,0.0,0.0, 0.4);
+    -fx-padding: 0.0625em 0.104em 0.0625em 0.104em;
+}
+
+
+/* dots beneath/ above the sort order-arrows */
+.table-view .column-header .sort-order-dot.ascending,
+.tree-table-view .column-header .sort-order-dot.ascending {
+    -fx-background-insets: -1.0 0.0 1.0 0.0, 0.0; 
+}
+
+.table-view .column-header .sort-order-dot.descending,
+.tree-table-view .column-header .sort-order-dot.descending {
+    -fx-background-insets: 1.0 0.0 -1.0 0.0, 0.0; 
+}
+
+.table-view > .column-header-background > .show-hide-columns-button,
+.tree-table-view > .column-header-background > .show-hide-columns-button{
+    -fx-background-color: transparent;
+}
+
+.table-view .show-hide-column-image,
+.tree-table-view .show-hide-column-image {
+    -fx-background-color: rgb(255.0, 255.0, 255.0, 0.4), rgb(0.0,0.0,0.0, 0.4);
+    -fx-background-insets: 3.0 2.0 -3.0 -2.0,  2.0 2.0 -2.0 -2.0;
+    -fx-padding: 0.25em;
+    -fx-shape: "M398.902,298.045c0.667,0,1.333,0,2,0c0,0.667,0,1.333,0,2c0.667,0,1.333,0,2,0c0,0.667,0,1.333,0,2c-0.667,0-1.333,0-2,0c0,0.666,0,1.332,0,1.999c-0.667,0-1.333,0-2,0c0-0.667,0-1.333,0-1.999c-0.666,0-1.333,0-1.999,0c0-0.667,0-1.334,0-2c0.666,0,1.333,0,1.999,0C398.902,299.378,398.902,298.711,398.902,298.045z"; 
+}
+
+.table-view .column-drag-header,
+.tree-table-view .column-drag-header {
+    -fx-background-color:  linear-gradient(rgb(224.0, 224.0, 224.0) 25.0%, rgb(214.0, 214.0, 214.0) 50.0%, rgb(207.0, 207.0, 207.0) 50.0%, 
+                rgb(209.0, 209.0, 209.0) 98.0% , rgb(218.0, 218.0, 218.0) 100.0%);
+    -fx-border-color: transparent;
+    -fx-opacity: 0.6;
+}
+
+.table-view /*> column-header-background > nested-column-header >*/ .arrow,
+.tree-table-view /*> column-header-background > nested-column-header >*/ .arrow {
+    -fx-background-color: rgb(255.0, 255.0, 255.0, 0.4), rgb(0.0,0.0,0.0, 0.4);
+    -fx-background-insets: 1.5 0.5 -1.0 0.5, 0.0, 0.0 0.5 0.0 0.5;
+    -fx-padding: 0.25em; 
+    -fx-shape: "M 0 0 h 7 l -3.5 4 z";
+}
+
+/* This is shown when the table has no rows and/or no columns. */
+.table-view .empty-table,
+.tree-table-view .empty-table {
+    -fx-background-color: white;
+}
+ .tree-table-row-cell:empty  .check-box-tree-table-cell,
+ .table-row-cell:empty  .check-box-table-cell,
+ .list-cell:empty {
+     -fx-opacity:0.0;
+ }
+
+.check-box-tree-table-cell,
+.check-box-table-cell {
+    -fx-alignment: center;
+}
